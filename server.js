@@ -30,7 +30,7 @@ const Difficulties = {
     Hard: 2
 };
 
-console.log(`Web server is running at http://localhost:${process.argv[2]}`)
+console.log(`Web server is running at http://localhost:${443}`)
 const prompt = "Stop to shutdown the server: ";
 interface.question(prompt, value => {if (value == "stop"){
   process.stdout.write("Shutting down the server\n");
@@ -55,7 +55,7 @@ const client = new MongoClient(uri, {
     }
   });
   
-app.listen(process.argv[2]);
+app.listen(443);
 
 app.get("/", (request, response) => { 
   response.render("index.ejs");
