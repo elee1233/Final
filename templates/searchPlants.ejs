@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Search Plants</title>
+</head>
+
+<body>
+	<h1>Search Plants</h1>
+    <form action="/processSearch" method="post">
+		<fieldset>
+            
+			<label><strong>Highest Difficulty: </strong> </label>
+
+                <select name="Difficulty">
+                    <option value ="Easy">Easy</option>
+                    <option value = "Medium">Medium</option>
+                    <option value = "Hard">Hard</option>
+                </select>
+            <br>
+			<label><strong>Minimum Space (inches): </strong><input type="number" name="minSpace" /></label><br>
+            <label><strong>Sunlight: </strong>            </label>
+
+                <select name="sunlight"  >
+                    <option value = "Full">Full</option>
+                    <option value = "Partial">Partial</option>
+                    <option value = "Little">Little</option>
+                </select>
+            <br>
+		    <input type="Reset" />
+		    <input type="submit" value="Submit Parameters" />
+		</fieldset>
+	</form>
+    <div id ="toMod"></div>
+    <a href = "/">HOME</a>
+
+</body>
+
+</html>
