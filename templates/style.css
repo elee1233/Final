@@ -41,6 +41,7 @@ a:hover, a:active{
     padding: 12px;
     color: #ffffff;
     background-color: rgba(22, 148, 122, 0.875);
+    cursor: default !important;
 }
 
 .section{
