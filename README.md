@@ -1,5 +1,5 @@
 Submitted by: Elisabeth Lee (directory id: elee1233)
-Group Members: Grace Tang (directory id: gtang12), Andrew
+Group Members: Grace Tang (directory id: gtang12), Andrew Jin (directory id: ajin123)
 App Description:Allow users to find plants that would work well for the user 
 YouTube Video Link: 
 APIs: Yummly (https://rapidapi.com/apidojo/api/yummly2/)
