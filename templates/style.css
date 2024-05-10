@@ -95,6 +95,24 @@ li{
     line-height: 140%;
 }
 
+table{
+    border: 1px solid #a3ccc3;
+    border-collapse: collapse; 
+}
+
+th{
+    background-color: #a3ccc3;
+}
+
+td{
+    background-color: transparent;
+    border: 1px solid #a3ccc3;
+}
+
+tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
 .wrapper{
     width: 65%;
     margin: auto;
@@ -103,6 +121,10 @@ li{
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     transition: width 0.3s ease;
+}
+
+.wide{
+    width: 80% !important;
 }
 
 .header{

@@ -77,7 +77,7 @@ app.post("/processSearch", async function (request, response) {
   await client.connect();
   const findResult = client.db(process.env.MONGO_DB_NAME).collection(process.env.MONGO_COLLECTION).find(obj);
   const findResult1 = await findResult.toArray(); 
-  toSend = "<table border = '1px'> <tr><th>Name</th> <th>Difficulty</th> <th>Space Needed (inches)</th> <th >Sowing</th> <th >Care </th> <th>Harvest</th><th >Food Recs</th></tr>";
+  toSend = "<table> <tr><th>Name</th> <th>Difficulty</th> <th>Space Needed (inches)</th> <th >Sowing</th> <th >Care </th> <th>Harvest</th><th >Food Recs</th></tr>";
   findResult1.forEach((curr)=>toSend += "<tr><td>"+ curr.name+"</td>"+"<td>"+ curr.difficulty+"</td>" + "<td>"+ curr.minSize+"</td>" +"<td>"+ curr.sowingInstructions+"</td>" + "<td>"+ curr.careInstructions+"</td>"  + "<td>"+ curr.harvestingInstructions+"</td>" + "<td>"+ curr.foodRecommendations+"</td>"+  "</tr>" )
   toSend += "</table>"
   const varSend = {
