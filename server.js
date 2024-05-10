@@ -94,3 +94,8 @@ app.post("/processSearch", async function (request, response) {
 app.get("/tips", (request, response) =>{
   response.render("tips.ejs");
 });
+
+
+app.get("/sources", (request, response) =>{
+  response.render("sources.ejs");
+});
