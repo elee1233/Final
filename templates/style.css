@@ -91,6 +91,10 @@ select{
     font-size: 0.9rem;
 }
 
+li{
+    line-height: 140%;
+}
+
 .wrapper{
     width: 65%;
     margin: auto;
