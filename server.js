@@ -9,16 +9,34 @@ const interface = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
+
+//PLANT HARDINESS API 
 const options = {
 	method: 'GET',
-	hostname: 'yummly2.p.rapidapi.com',
+	hostname: 'plant-hardiness-zone.p.rapidapi.com',
 	port: null,
-	path: '/feeds/auto-complete?q=basil',
+	path: '/zipcodes/90210',
 	headers: {
 		'X-RapidAPI-Key': '610d553044msh82a30835640d07dp1f1654jsna0d2d62bfc18',
-		'X-RapidAPI-Host': 'yummly2.p.rapidapi.com'
+		'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com'
 	}
 };
+
+//EXAMPLE OF HOW TO USE API 
+const req = http.request(options, function (res) {
+	const chunks = [];
+
+	res.on('data', function (chunk) {
+		chunks.push(chunk);
+	});
+
+	res.on('end', function () {
+		const body = Buffer.concat(chunks);
+		console.log(body.toString());
+	});
+});
+
+req.end();
 const publicPath = path.resolve(__dirname, "templates/");
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
@@ -55,8 +73,7 @@ const client = new MongoClient(uri, {
       deprecationErrors: true,
     }
   });
-  
-app.listen(443);
+app.listen(process.env.PORT||443);
 
 app.get("/", (request, response) => { 
   response.render("index.ejs");
