@@ -19,14 +19,14 @@ a{
     text-decoration-thickness: 0px;
     text-decoration-color: transparent;
     font-weight: 700;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 a:hover, a:active{
     color: #18ae91;
     text-decoration-thickness: 1px;
     text-decoration-color: #18ae91;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     
 }
 
@@ -38,21 +38,21 @@ button{
     font-size: 1rem;
     font-weight: 400 !important;
     color: #16947a !important;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 button:hover{
     border: 2px solid #18ae91;
     background-color: #18ae91;
     color: #ffffff !important;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 button:active{
     border: 2px solid #16947a;
     background-color: #16947a;
     color: #ffffff !important;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .ba{
@@ -77,12 +77,12 @@ input{
     border-bottom: 2px solid #bdc3c7;
     outline: none;
     padding: 3px;
-    transition: 0.3s border ease;
+    transition: 0.25s border ease;
 }
 
 input:focus{
     border-bottom: 2px solid #18ae91;
-    transition: 0.3s border ease;
+    transition: 0.25s border ease;
 }
 
 select{
@@ -129,7 +129,7 @@ tr:nth-child(even){
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    transition: width 0.3s ease;
+    transition: width 0.25s ease;
 }
 
 .wide{
