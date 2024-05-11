@@ -68,8 +68,8 @@ app.get("/searchPlants", (request, response) => {
 app.post("/processSearch", async function (request, response) {
 //collect info
   const obj = {
-    minSize: {$gte: request.body.minSpace/1},
-    difficulty: {$gte: Difficulties[request.body.Difficulty]}, 
+    minSize: {$lte: request.body.minSpace/1},
+    difficulty: {$lte: Difficulties[request.body.Difficulty]}, 
     sunlight: request.body.sunlight
   }
   console.log(obj)
