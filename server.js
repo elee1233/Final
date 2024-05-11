@@ -80,6 +80,9 @@ app.post("/processSearch", async function (request, response) {
   toSend = "<table> <tr><th>Name</th> <th>Difficulty</th> <th>Space Needed (inches)</th> <th >Sowing</th> <th >Care </th> <th>Harvest</th><th >Food Recs</th></tr>";
   findResult1.forEach((curr)=>toSend += "<tr><td>"+ curr.name+"</td>"+"<td>"+ curr.difficulty+"</td>" + "<td>"+ curr.minSize+"</td>" +"<td>"+ curr.sowingInstructions+"</td>" + "<td>"+ curr.careInstructions+"</td>"  + "<td>"+ curr.harvestingInstructions+"</td>" + "<td>"+ curr.foodRecommendations+"</td>"+  "</tr>" )
   toSend += "</table>"
+  if (findResult1.length == 0){
+      toSend += "<p style = \"font-size: 1.125rem\">No plant found which meets such requirements</p>";
+  }
   const varSend = {
     content: toSend
   }
