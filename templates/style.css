@@ -55,13 +55,6 @@ button:active{
     transition: all 0.25s ease;
 }
 
-.ba{
-    color: inherit !important;
-    text-decoration: none !important;
-    font-weight: inherit !important;
-    cursor: default;
-}
-
 form{
     padding: 10px;
 }
@@ -135,6 +128,29 @@ tr:nth-child(even){
 
 .wide{
     width: 75% !important;
+}
+
+.red{
+    border: 2px solid #c0392b;
+    color: #c0392b !important;
+    
+}
+
+.red:hover{
+    border: 2px solid #e74c3c;
+    background-color: #e74c3c;
+}
+
+.red:active{
+    border: 2px solid #c0392b;
+    background-color: #c0392b;
+}
+
+.ba{
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: inherit !important;
+    cursor: default;
 }
 
 .header{
