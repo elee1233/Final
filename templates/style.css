@@ -60,7 +60,7 @@ form{
 }
 
 label{
-    line-height: 190%;
+    line-height: 200%;
 }
 
 input{
@@ -79,7 +79,7 @@ input:focus{
 }
 
 select{
-    padding: 2px 4px;
+    padding: 3px 4px;
     font-size: 0.9rem;
 }
 
@@ -113,16 +113,19 @@ tr:nth-child(even){
     position: fixed; 
     background-image: url('esjgarden.jpeg'); 
     background-size: cover;
+    z-index: 0;
 }
 
 .wrapper{
     width: 65%;
     min-width: 340px !important;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.775);
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    z-index: 100;
+    position: relative;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     transition: width 0.25s ease;
 }
 
