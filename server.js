@@ -12,50 +12,16 @@ const interface = readline.createInterface({
 
 const fetch = require('node-fetch');
 
-const url = 'https://plant-hardiness-zone.p.rapidapi.com/zipcodes/90210';
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '610d553044msh82a30835640d07dp1f1654jsna0d2d62bfc18',
+    'X-RapidAPI-Key': 'd63944096cmsh18105f98934ea45p1cc1ffjsn6a070a225a6b',
     'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com'
   }
 };
+//const {getHardiness} = require('./data.js');
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
-/*
-//PLANT HARDINESS API 
-const options = {
-	method: 'GET',
-	hostname: 'plant-hardiness-zone.p.rapidapi.com',
-	port: process.env.PORT||443,
-	path: '/zipcodes/90210',
-	headers: {
-		'X-RapidAPI-Key': '610d553044msh82a30835640d07dp1f1654jsna0d2d62bfc18',
-		'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com'
-	}
-};
-
-//EXAMPLE OF HOW TO USE API 
-const req = http.request(options, function (res) {
-	const chunks = [];
-
-	res.on('data', function (chunk) {
-		chunks.push(chunk);
-	});
-
-	res.on('end', function () {
-		const body = Buffer.concat(chunks);
-		console.log(body.toString());
-	});
-});
-*/
-req.end();
+//req.end();
 const publicPath = path.resolve(__dirname, "templates/");
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
@@ -100,6 +66,33 @@ app.get("/", (request, response) => {
 
 app.get("/searchPlants", (request, response) => {
   response.render("searchPlants.ejs");
+});
+
+app.get("/hardiness", (request, response) => {
+  response.render("hardiness.ejs", {info: null});
+});
+
+app.post("/getHardiness", async function (request, response) {
+  if (!request.body.zipcode) {
+    response.render("hardiness.ejs", {info: "Please enter a zipcode"});
+    return
+  }
+
+  let url = 'https://plant-hardiness-zone.p.rapidapi.com/zipcodes/' + request.body.zipcode;
+  try {
+      //console.log("invoke url: " + url);
+      const res = await fetch(url, options);
+      const result = await res.text();
+      let resJson = JSON.parse(result);
+      if(!resJson) {
+        response.render("hardiness.ejs", {info: "No data"});
+        return
+      }
+      let ans = `Hardiness Zone for ${resJson.zipcode}: ${resJson.hardiness_zone}`;
+      response.render("hardiness.ejs", {info: ans});
+  } catch (error) {
+      console.error(error);
+  }
 });
 app.post("/processSearch", async function (request, response) {
 //collect info
