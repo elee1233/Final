@@ -14,7 +14,7 @@ const interface = readline.createInterface({
 const options = {
 	method: 'GET',
 	hostname: 'plant-hardiness-zone.p.rapidapi.com',
-	port: null,
+	port: process.env.PORT||443,
 	path: '/zipcodes/90210',
 	headers: {
 		'X-RapidAPI-Key': '610d553044msh82a30835640d07dp1f1654jsna0d2d62bfc18',
