@@ -10,6 +10,25 @@ const interface = readline.createInterface({
     output: process.stdout
 });
 
+const fetch = require('node-fetch');
+
+const url = 'https://plant-hardiness-zone.p.rapidapi.com/zipcodes/90210';
+const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': '610d553044msh82a30835640d07dp1f1654jsna0d2d62bfc18',
+    'X-RapidAPI-Host': 'plant-hardiness-zone.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+/*
 //PLANT HARDINESS API 
 const options = {
 	method: 'GET',
@@ -35,7 +54,7 @@ const req = http.request(options, function (res) {
 		console.log(body.toString());
 	});
 });
-
+*/
 req.end();
 const publicPath = path.resolve(__dirname, "templates/");
 app.set("views", path.resolve(__dirname, "templates"));
